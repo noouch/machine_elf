@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elf Therapy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Disclaimer Modal -->
+    <div id="disclaimer-modal" class="modal">
+        <div class="modal-content">
+            <h2>Important Notice</h2>
+            <p>WARNING: Elf Therapist is a novelty, not a real therapist, and does not provide any actual form of psychotherapy.</p>
+            <button id="accept-disclaimer">I Understand</button>
+        </div>
+    </div>
+
+    <!-- Main Chat Interface -->
+    <div class="container">
+        <header>
+            <h1>Elf Therapy</h1>
+        </header>
+
+        <div class="content">
+            <!-- Therapist Image -->
+            <div class="therapist-container">
+                <img id="therapist-image" src="{{ url_for('static', filename='images/therapist_' + therapist_number|string + '_idle.webp') }}" alt="Elf Therapist">
+            </div>
+
+            <!-- Chat Box -->
+            <div class="chat-container">
+                <div id="chat-history"></div>
+                <div id="feedback-section" class="feedback-section hidden">
+                    <p><em>That concludes our session. How do you feel?</em></p>
+                    <div class="feedback-buttons">
+                        <button class="feedback-btn" data-feedback="happy">😊 Happy</button>
+                        <button class="feedback-btn" data-feedback="neutral">😐 Neutral</button>
+                        <button class="feedback-btn" data-feedback="sad">😢 Sad</button>
+                    </div>
+                </div>
+                <div id="thank-you-section" class="thank-you-section hidden">
+                    <p>Thank you for your feedback, Happy Holidays!</p>
+                </div>
+                <div id="input-section" class="input-section">
+                    <input type="text" id="user-input" placeholder="Type your message here..." autocomplete="off">
+                    <button id="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
